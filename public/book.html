@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="book.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Event - Event Management Company</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var bookingForm = document.getElementById("booking-form");
+            var thankYouMessage = document.getElementById("thank-you-message");
+
+            bookingForm.addEventListener("submit", function(event) {
+                event.preventDefault(); 
+                bookingForm.style.display = "none";
+                thankYouMessage.style.display = "block";
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Book Your Event</h1>
+        <nav>
+            <ul>
+			 <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="delete.html">Delete Your Account</a></li>
+                <li><a href="/bookings">Bookings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="booking-section">
+        <h2>Book Your Event</h2>
+        <form action="/submit_booking" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="123-45-678" 
+            pattern="[0-9]{10}" maxlength=10 required>
+
+
+            <label for="event-type">Type of Event:</label>
+            <select id="eventtype" name="eventtype">
+                <option value="wedding">Wedding</option>
+                <option value="corporate">Corporate Event</option>
+                <option value="birthday">Birthday Party</option>
+                <option value="festival">Music and Arts Festival</option>
+            </select>
+
+            <label for="eventplace">Place of Event:</label>
+            <input type="text" id="eventplace" name="eventplace" required>
+			 <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" name="guests" required>
+            <label for="eventdate">Date of Event:</label>
+    <input type="date" id="eventdate" name="eventdate" required>
+
+            <button type="submit" id="submit-button">Submit</button>
+        </form>
+
+        <!-- Thank you message -->
+        <div id="thank-you-message" style="display: none;">
+            <p>Thank you for choosing us! Your event has been booked.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Vardhayathi Divasa Events. All rights reserved.<br>
+            ContactUs:-vardhayathidivasaevents@gmail.com</p>
+    </footer>
+</body>
+</html>

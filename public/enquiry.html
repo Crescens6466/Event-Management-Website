@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="enquiry.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry - Event Management Company</title>
+</head>
+<body>
+    <header>
+        <h1>Enquiry</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="login.html">Book Now</a></li>
+                <li><a href="delete.html">Delete Your Account</a></li>
+                <li><a href="/bookings">Bookings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="enquiry-section">
+        <h2>Get a Quote</h2>
+        <form id="enquiry-form" action="submit_enquiry.php" method="POST">
+            <label for="event-type">Event Type:</label>
+            <select id="event-type" name="event-type">
+                <option value="wedding">Wedding</option>
+                <option value="corporate">Corporate Event</option>
+                <option value="birthday">Birthday Party</option>
+                <option value="festival">Music and Arts Festival</option>
+            </select>
+
+            <label for="guest-count">Number of Guests:</label>
+            <input type="number" id="guest-count" name="guest-count" required>
+
+            <button type="button" id="calculate-button">Calculate Quote</button>
+
+            <div id="quote-results">
+                <p><strong>Estimated Quote:</strong> <span id="quote-amount">$0.00</span></p>
+            </div>
+        </form>
+
+        <h2>Clear Your Doubts</h2>
+            <form action="/enquiry" method="POST">
+            <label for="customer-name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="customer-email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="doubts-text">Enter Your Questions or Concerns:</label>
+            <textarea id="question" name="question" rows="4" required></textarea>
+
+            <button type="submit" id="submit-doubts-button">Submit Your Doubts</button>
+            <div id="doubts-message" style="display: none;"></div>
+            </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Vardhayathi Divasa Events. All rights reserved.<br>
+            ContactUs:-vardhayathidivasaevents@gmail.com</p>
+    </footer>
+
+    <script src="enquiry.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const doubtsForm = document.getElementById('doubts-form');
+            const doubtsMessage = document.getElementById('doubts-message');
+            doubtsForm.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent form submission (for demonstration purposes)
+                doubtsMessage.style.display = 'block';
+                doubtsMessage.textContent = 'Thank you! We have received your doubts. You will receive an email with our response.';
+            });
+        });
+    </script>
+</body>
+</html>
